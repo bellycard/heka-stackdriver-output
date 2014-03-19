@@ -121,9 +121,6 @@ func (so *StackdriverCustomMetricOutput) Run(or OutputRunner, h PluginHelper) (e
 					val, _ := strconv.ParseInt(tmpMetric.Value.(string), 10, 64)
 					so.gwm.CustomMetric(tmpMetric.Name, tmpMetric.InstanceId, FormatUnixNano(pack.Message.GetTimestamp()), val)
 				}
-
-				// Add custom metric to gateway message.
-
 			}
 			pack.Recycle()
 		case <-ticker:
