@@ -128,7 +128,6 @@ func (so *StackdriverCustomMetricOutput) Run(or OutputRunner, h PluginHelper) (e
 			err = client.Send(so.gwm)
 			if err != nil {
 				so.or.LogMessage(fmt.Sprintf("[StackdriverCustomMetricOutput] API submission fail: %s\n", err))
-				so.or.LogMessage(fmt.Sprintf("header info: apikey[%s]", so.conf.ApiKey))
 			}
 			so.gwm = sd.NewGatewayMessage()
 		}
